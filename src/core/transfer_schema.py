@@ -7,6 +7,9 @@ import os
 import sys
 
 from src.core.mapping import Mapping
+from src.source.filesystem_source import FileSystemSource
+from src.destination.filesystem_destination import FileSystemDestination
+from src.transfer.file_transfer import FileTransfer
 
 
 class TransferSchema:
@@ -31,35 +34,24 @@ class TransferSchema:
             sys.exit(1)
         with open(self.yaml_file, 'r') as file:
             config = yaml.load(file)
-        self._sources = self._validate_sources(config)
-        self._destinations = self._validate_destinations(config)
-        self._transfers = self._validate_transfers(config)
+
         self._mappings = self._validate_mappings(config)
-
-
-    @staticmethod
-    def _validate_sources(config):
-        return config['source']
-
-    @staticmethod
-    def _validate_destinations(config):
-        return config['destination']
-
-    @staticmethod
-    def _validate_transfers(config):
-        return config['transfer']
 
     @staticmethod
     def _validate_mappings(config):
         mappings = []
         for mapping in config['mapping']:
             name = mapping['name']
-            source = mapping['source']
-            destination = mapping['destination']
-            transport = mapping['transport']
-            schedule = mapping['schedule']
-            executions = mapping['executions']
-            mappings.append(Mapping(name, source, destination, transport, schedule, executions))
+            # TODO write an appropriate mapper
+            if mapping['source']['type'] == "file_system":
+                source = FileSystemSource(mapping['source']['dir'])
+            if mapping['destination']['type'] == "file_system":
+                destination = FileSystemDestination(mapping['destination']['dir'])
+            if mapping['transfer']['type'] == "file_copy":
+                transfer = FileTransfer(mapping['transfer']['waittime'],
+                                           mapping['transfer']['executions'])
+
+            mappings.append(Mapping(name, source, destination, transfer))
         return mappings
 
 

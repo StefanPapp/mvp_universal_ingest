@@ -93,6 +93,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/destination/filesystem_destination.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/destination/s3_destination.py">
           <value>
             <set />
@@ -109,6 +114,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/source/source.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/file_transfer.py">
           <value>
             <set />
           </value>

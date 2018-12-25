@@ -24,7 +24,8 @@ def _main():
     """
     args = _eval_args(sys.argv[1:])
     transfer_schema = TransferSchema(args.config)
-    workflow = WorkFlow(8, transfer_schema.sources, transfer_schema.destinations, transfer_schema.transfers)
+    transfer_schema.load()
+    workflow = WorkFlow(8)
     workflow.start(transfer_schema.mappings)
 
 

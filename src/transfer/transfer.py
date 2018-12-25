@@ -9,5 +9,4 @@ class Transfer:
     """
 
     def __init__(self):
-        # TODO implement scheduler
-        self.schedule = None
+        self.last_executed = None

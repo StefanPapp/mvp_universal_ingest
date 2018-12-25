@@ -1,39 +1,25 @@
-source:
-  - name: filetype_1
-    type: file_system
-    dir: /workspace/src/sandbox/demo1
-  - name: file_type_2
-    type: file_system
-    dir: /workspace/src/sandbox/demo2
-
-destination:
-  - name: aws_demo
-    type: aws_s3
-  - name: file_endpoint
-    type: file_system
-
-transfer:
-  - name: kafka_to_end
-    type: kafka
-    broker:
-      host: localhost
-      port: 9092
-    topic: kmi_test
-  - name: copy
-    type: bulk_copy
-
 mapping:
-  - name: ft1_to_file_endpoint
-    source: filetype_1
-    destination: file_endpoint
-    transport: file_transfer
-    schedule: 5
-    executions: 5
-  - name: ft2_to_file_endpoint
-    source: filetype_1
-    destination: file_endpoint
-    transport: kafka_transfer
-    schedule: 5
-    executions: 5
+  - name: file_to_file_endpoint_test1
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/demo1
+    destination:
+      type: file_system
+      dir: /workspace/src/sandbox/demo2
+    transfer:
+      type: file_copy
+      waittime: 5
+      executions: 5
 
+  - name: file_to_file_endpoint_test2
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/demo3
+    destination:
+      type: file_system
+      dir: /workspace/src/sandbox/demo4
+    transfer:
+      type: file_copy
+      waittime: 5
+      executions: 0
 

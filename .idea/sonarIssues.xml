@@ -113,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/source/filesystem_source.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/source/source.py">
           <value>
             <set />
@@ -129,6 +134,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/transfer/transfer.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/config.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/source/unittest.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/test_filetransfer.py">
           <value>
             <set />
           </value>

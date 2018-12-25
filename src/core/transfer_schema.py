@@ -39,21 +39,32 @@ class TransferSchema:
 
     @staticmethod
     def _validate_mappings(config):
-        mappings = []
+        mappings_list = []
         for mapping in config['mapping']:
             name = mapping['name']
-            # TODO write an appropriate mapper
-            if mapping['source']['type'] == "file_system":
-                source = FileSystemSource(mapping['source']['dir'])
-            if mapping['destination']['type'] == "file_system":
-                destination = FileSystemDestination(mapping['destination']['dir'])
-            if mapping['transfer']['type'] == "file_copy":
-                transfer = FileTransfer(mapping['transfer']['waittime'],
-                                           mapping['transfer']['executions'])
+            source = TransferSchema._load_source(mapping['source'])
+            destination = TransferSchema._load_destination(mapping['destination'])
+            transfer = TransferSchema._load_transfer_type(mapping['transfer'])
+            mappings_list.append(Mapping(name, source, destination, transfer))
+        return mappings_list
 
-            mappings.append(Mapping(name, source, destination, transfer))
-        return mappings
+    @staticmethod
+    def _load_source(source):
+        if source['type'] == "file_system":
+            return FileSystemSource(source['dir'])
+        raise AttributeError("No Source Type specified")
 
+    @staticmethod
+    def _load_destination(destination):
+        if destination['type'] == "file_system":
+            return FileSystemDestination(destination['dir'])
+        raise AttributeError("No dest Type specified")
+
+    @staticmethod
+    def _load_transfer_type(transfer_type):
+        if transfer_type['type'] == "file_copy":
+            return FileTransfer(transfer_type['waittime'], transfer_type['executions'])
+        raise AttributeError("No transfer Type specified")
 
     @property
     def sources(self):
@@ -69,7 +80,7 @@ class TransferSchema:
         returns the log manager responsible for all logging related tasks
         :return:
         """
-        return  self._destinations
+        return self._destinations
 
     @property
     def transfers(self):

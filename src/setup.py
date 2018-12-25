@@ -28,6 +28,7 @@ setup(
     ],
     install_requires=[
         'awscli',
-        'pykafka'
+        'pykafka',
+        'pyyaml'
     ]
 )

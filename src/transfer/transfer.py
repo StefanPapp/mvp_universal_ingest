@@ -10,3 +10,6 @@ class Transfer:
 
     def __init__(self):
         self.last_executed = None
+
+    def execute(self, source, destination):
+        pass

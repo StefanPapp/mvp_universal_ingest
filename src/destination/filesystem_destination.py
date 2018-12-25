@@ -10,6 +10,10 @@ from src.destination.destination import Destination
 class FileSystemDestination(Destination):
 
     def __init__(self, url):
-        self.url = url
+        self._directory = url
+
+    @property
+    def directory(self):
+        return self._directory
 
 

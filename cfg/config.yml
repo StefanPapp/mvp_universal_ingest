@@ -1,3 +1,11 @@
+mapping:
+  - name: ft1_to_file_endpoint
+    source: filetype_1
+    destination: file_endpoint
+    transport: file_transfer
+    schedule: 5
+    executions: 5
+
 source:
   - name: filetype_1
     type: file_system
@@ -22,8 +30,3 @@ transfer:
   - name: copy
     type: bulk_copy
 
-mapping:
-  name: ft1_to_file_endpoint
-  source: filetype_1
-  destination: file_endpoint
-  transport: file_transfer

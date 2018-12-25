@@ -23,9 +23,17 @@ transfer:
     type: bulk_copy
 
 mapping:
-  name: ft1_to_file_endpoint
-  source: filetype_1
-  destination: file_endpoint
-  transport: file_transfer
+  - name: ft1_to_file_endpoint
+    source: filetype_1
+    destination: file_endpoint
+    transport: file_transfer
+    schedule: 5
+    executions: 5
+  - name: ft2_to_file_endpoint
+    source: filetype_1
+    destination: file_endpoint
+    transport: kafka_transfer
+    schedule: 5
+    executions: 5
 
 

@@ -4,7 +4,7 @@
 
 import os
 from setuptools import setup
-from core import __version__
+from src import __version__
 
 
 def _read(file_name):

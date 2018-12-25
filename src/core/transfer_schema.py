@@ -6,6 +6,8 @@ import yaml
 import os
 import sys
 
+from src.core.mapping import Mapping
+
 
 class TransferSchema:
     """
@@ -29,22 +31,37 @@ class TransferSchema:
             sys.exit(1)
         with open(self.yaml_file, 'r') as file:
             config = yaml.load(file)
-        self._sources = self.validate_sources(config)
-        self._destinations = self.validate_destinations(config)
-        self._transfers = self.validate_transfers(config)
-        self._mappings = self.validate_mappings(config)
+        self._sources = self._validate_sources(config)
+        self._destinations = self._validate_destinations(config)
+        self._transfers = self._validate_transfers(config)
+        self._mappings = self._validate_mappings(config)
 
-    def validate_sources(self, config):
+
+    @staticmethod
+    def _validate_sources(config):
         return config['source']
 
-    def validate_destinations(self, config):
+    @staticmethod
+    def _validate_destinations(config):
         return config['destination']
 
-    def validate_transfers(self, config):
-        return config['target']
+    @staticmethod
+    def _validate_transfers(config):
+        return config['transfer']
 
-    def validate_mappings(self, config):
-        return config['mapping']
+    @staticmethod
+    def _validate_mappings(config):
+        mappings = []
+        for mapping in config['mapping']:
+            name = mapping['name']
+            source = mapping['source']
+            destination = mapping['destination']
+            transport = mapping['transport']
+            schedule = mapping['schedule']
+            executions = mapping['executions']
+            mappings.append(Mapping(name, source, destination, transport, schedule, executions))
+        return mappings
+
 
     @property
     def sources(self):

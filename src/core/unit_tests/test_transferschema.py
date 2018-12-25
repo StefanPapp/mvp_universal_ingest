@@ -28,7 +28,7 @@ class TestTransferSchema(TestCase):
         """
         test_transfer_schema = TransferSchema("./config.yml")
         test_transfer_schema.load()
-        self.assertNotEqual(None, test_transfer_schema.validate_sources())
+        self.assertNotEqual(None, test_transfer_schema.sources)
 
     def test_destinations(self):
         pass
@@ -37,4 +37,6 @@ class TestTransferSchema(TestCase):
         pass
 
     def test_transfers(self):
-        pass
+        test_transfer_schema = TransferSchema("./config.yml")
+        test_transfer_schema.load()
+        self.assertNotEqual(None, test_transfer_schema.transfers)

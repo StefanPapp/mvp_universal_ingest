@@ -58,7 +58,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/core/log_manager.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/core/mapping.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/core/objectfactory.py">
           <value>
             <set />
           </value>
@@ -103,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/destination/s3destination.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/setup.py">
           <value>
             <set />
@@ -139,6 +154,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/transfer/unit_tests/config.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/destination/unittest.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/s3_test.yml">
           <value>
             <set />
           </value>

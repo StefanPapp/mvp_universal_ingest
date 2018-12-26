@@ -4,31 +4,39 @@
 
 
 import os
-
+import logging
 from pykafka import KafkaClient
-
 from src.transfer.transfer import Transfer
+from src.source.filesystem_source import FileSystemSource
+from src.destination.filesystem_destination import FileSystemDestination
 
 
 class KafkaTransfer(Transfer):
     """
-
+    Kafka Transfer
     """
 
-    def transfer(self):
+    def __init__(self, wait_time, executions, host, port, topic):
+        super().__init__(wait_time, executions)
+        self.broker = "{}:{}".format(host, port)
+        self.topic = topic
 
-        host = config['broker']['host']
-        port = config['broker']['port']
-        topic = config['files']['topic']
-        dir = config['files']['dir']
+    def execute(self, source: FileSystemSource, destination: FileSystemDestination):
+        """
 
-        broker = "{}:{}".format(host, port)
+        :param source:
+        :param destination:
+        :return:
+        """
 
-        client = KafkaClient(hosts=broker)
-        topic = client.topics[topic.encode()]
-        for file in os.listdir(dir):
+        logger = logging.getLogger("universal_ingest")
+        logger.debug("files copied")
+
+        client = KafkaClient(hosts=self.broker)
+        topic = client.topics[self.topic.encode()]
+        for file in os.listdir(source.directory):
             with topic.get_sync_producer() as producer:
-                with open(os.path.join(dir, file)) as fp:
+                with open(os.path.join(source.directory, file)) as fp:
                     lines = fp.readlines()
                     for line in lines:
                         producer.produce(line.encode())

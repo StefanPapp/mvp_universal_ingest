@@ -1,5 +1,5 @@
 """
-@copyright: 2017 Data Wizard
+@copyright: 2018 Data Wizard
 """
 
 import yaml
@@ -7,9 +7,7 @@ import os
 import sys
 
 from src.core.mapping import Mapping
-from src.source.filesystem_source import FileSystemSource
-from src.destination.filesystem_destination import FileSystemDestination
-from src.transfer.file_transfer import FileTransfer
+from src.core.objectfactory import ObjectFactory
 
 
 class TransferSchema:
@@ -51,19 +49,31 @@ class TransferSchema:
     @staticmethod
     def _load_source(source):
         if source['type'] == "file_system":
-            return FileSystemSource(source['dir'])
+            return ObjectFactory.filesystem_source(directory=source['dir'])
         raise AttributeError("No Source Type specified")
 
     @staticmethod
     def _load_destination(destination):
         if destination['type'] == "file_system":
-            return FileSystemDestination(destination['dir'])
+            return ObjectFactory.filesystem_destination(directory=destination['dir'])
+        if destination['type'] == "s3":
+            return ObjectFactory.s3(directory=destination['dir'])
         raise AttributeError("No dest Type specified")
 
     @staticmethod
     def _load_transfer_type(transfer_type):
         if transfer_type['type'] == "file_copy":
-            return FileTransfer(transfer_type['waittime'], transfer_type['executions'])
+            return ObjectFactory.filesystem_filetransfer(wait_time=transfer_type['waittime'],
+                                                         executions=transfer_type['executions'])
+
+        if transfer_type['type'] == "kafka_copy":
+            return ObjectFactory.kafka_filetransfer(wait_time=transfer_type['wait_time'],
+                                                    executions=transfer_type['executions'],
+                                                    host=transfer_type['host'],
+                                                    port=transfer_type['port'],
+                                                    topic=transfer_type['topic']
+                                                    )
+
         raise AttributeError("No transfer Type specified")
 
     @property

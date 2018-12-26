@@ -8,6 +8,7 @@ import sys
 
 from core.transfer_schema import TransferSchema
 from core.workflow import WorkFlow
+from core.log_manager import LogManager
 
 
 def _eval_args(args):
@@ -23,6 +24,7 @@ def _main():
     :return:
     """
     args = _eval_args(sys.argv[1:])
+    LogManager()
     transfer_schema = TransferSchema(args.config)
     transfer_schema.load()
     workflow = WorkFlow(8)

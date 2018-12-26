@@ -11,7 +11,7 @@ mapping:
       waittime: 5
       executions: 5
 
-  - name: ft2_to_file_endpoint
+  - name: kafka_file_to_file_endpoint
     source:
       type: file_system
       dir: /workspace/src/sandbox/demo3
@@ -19,12 +19,9 @@ mapping:
       type: file_system
       dir: /workspace/src/sandbox/demo4
     transfer:
-      type: kafka
+      type: kafka_copy
+      host: localhost
+      broker: 9092
+      topic: ingest
       waittime: 5
-      executions: 0
-
-
-
-
-
-
+      executions: 1

@@ -1,0 +1,25 @@
+mapping:
+  - name: s3_test1
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+    destination:
+      type: s3
+      dir: unittestingestor
+    transfer:
+      type: file_copy
+      waittime: 5
+      executions: 1
+
+  - name: s3_test2
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+    destination:
+      type: s3
+      dir: unittestingestor
+    transfer:
+      type: file_copy
+      waittime: 5
+      executions: 0
+

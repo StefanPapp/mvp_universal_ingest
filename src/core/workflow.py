@@ -1,5 +1,10 @@
+"""
+@copyright: 2018 Data Wizard
+"""
 
 import time
+import logging
+
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -24,7 +29,8 @@ class WorkFlow:
         # Wait for all tasks to finish
         while self.threadpool_components:
             self.threadpool_components.pop().result()
-        print("Done")
+        logger = logging.getLogger("universal_ingest")
+        logger.debug("done")
 
     @staticmethod
     def send(mapping):

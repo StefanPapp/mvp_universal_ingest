@@ -1,14 +1,15 @@
 """
-@copyright: 2017 Data Wizard
+@copyright: 2018 Data Wizard
 """
 
 import os
+
 from src.destination.destination import Destination
 
 
-class FileSystemDestination(Destination):
+class S3Destination(Destination):
     """
-    Defines a file system destination
+    This class is responsible for storing data into S3
     """
 
     def __init__(self, directory):

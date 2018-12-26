@@ -108,6 +108,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/destination/kafkadestination.py">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/destination/s3_destination.py">
           <value>
             <set />
@@ -163,7 +168,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/kafka_test.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/transfer/unit_tests/s3_test.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/source/sample_csv.csv">
           <value>
             <set />
           </value>
@@ -174,6 +189,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/transfer/unit_tests/test_filetransfer.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/transfer/unit_tests/test_kafkatransfer.py">
           <value>
             <set />
           </value>

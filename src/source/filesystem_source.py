@@ -1,5 +1,10 @@
+"""
+@copyright: 2018 Data Wizard
+"""
+
 from src.source.source import Source
 import os
+
 
 class FileSystemSource(Source):
     """

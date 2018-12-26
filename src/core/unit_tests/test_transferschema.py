@@ -2,6 +2,7 @@ from unittest import TestCase
 
 from src.core.transfer_schema import TransferSchema
 
+
 class TestTransferSchema(TestCase):
     """
     Unittests for Transferschema

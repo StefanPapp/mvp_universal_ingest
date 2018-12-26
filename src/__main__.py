@@ -6,9 +6,9 @@ import argparse
 import sys
 
 
-from core.transfer_schema import TransferSchema
-from core.workflow import WorkFlow
-from core.log_manager import LogManager
+from src.core.transfer_schema import TransferSchema
+from src.core.workflow import WorkFlow
+from src.core.log_manager import LogManager
 
 
 def _eval_args(args):

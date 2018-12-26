@@ -1,3 +1,7 @@
+"""
+@copyright: 2018 Data Wizard
+"""
+
 from unittest import TestCase
 
 from src.core.transfer_schema import TransferSchema

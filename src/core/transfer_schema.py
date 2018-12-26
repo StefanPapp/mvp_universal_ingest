@@ -2,9 +2,9 @@
 @copyright: 2018 Data Wizard
 """
 
-import yaml
 import os
 import sys
+import yaml
 
 from src.core.mapping import Mapping
 from src.core.objectfactory import ObjectFactory
@@ -58,6 +58,8 @@ class TransferSchema:
             return ObjectFactory.filesystem_destination(directory=destination['dir'])
         if destination['type'] == "s3":
             return ObjectFactory.s3(directory=destination['dir'])
+        if destination['type'] == "kafka":
+            return ObjectFactory.kafka(topic=destination['topic'])
         raise AttributeError("No dest Type specified")
 
     @staticmethod
@@ -66,12 +68,11 @@ class TransferSchema:
             return ObjectFactory.filesystem_filetransfer(wait_time=transfer_type['waittime'],
                                                          executions=transfer_type['executions'])
 
-        if transfer_type['type'] == "kafka_copy":
-            return ObjectFactory.kafka_filetransfer(wait_time=transfer_type['wait_time'],
+        if transfer_type['type'] == "kafka":
+            return ObjectFactory.kafka_filetransfer(wait_time=transfer_type['waittime'],
                                                     executions=transfer_type['executions'],
                                                     host=transfer_type['host'],
-                                                    port=transfer_type['port'],
-                                                    topic=transfer_type['topic']
+                                                    port=transfer_type['port']
                                                     )
 
         raise AttributeError("No transfer Type specified")

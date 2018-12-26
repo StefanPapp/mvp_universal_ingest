@@ -1,0 +1,30 @@
+mapping:
+  - name: kafka_test1
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+    destination:
+      type: kafka
+      topic: unittesttopic
+    transfer:
+      type: kafka
+      host: localhost
+      port: 9092
+      waittime: 5
+      executions: 1
+
+  - name: kafka_test2
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+    destination:
+      type: kafka
+      topic: unittesttopic
+    transfer:
+      type: kafka
+      host: localhost
+      port: 9092
+      filter: "csv"
+      waittime: 5
+      executions: 0
+

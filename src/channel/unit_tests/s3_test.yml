@@ -2,7 +2,7 @@ mapping:
   - name: s3_test1
     source:
       type: file_system
-      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/source
     destination:
       type: s3
       dir: unittestingestor
@@ -14,11 +14,11 @@ mapping:
   - name: s3_test2
     source:
       type: file_system
-      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/source
     destination:
       type: s3
       dir: unittestingestor
-    transfer:
+    channel:
       type: file_copy
       waittime: 5
       executions: 0

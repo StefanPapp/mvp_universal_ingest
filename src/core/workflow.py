@@ -15,20 +15,20 @@ class WorkFlow:
 
     def __init__(self, executors):
         self.executor = ThreadPoolExecutor(max_workers=executors)
-        self.threadpool_components = []
+        self.threads = []
 
     def start(self, mappings):
         """
-        Starting transfer
+        Starting channel
         :param mappings:
         :return:
         """
         for mapping in mappings:
-            self.threadpool_components.append(self.executor.submit(WorkFlow.send, mapping))
+            self.threads.append(self.executor.submit(WorkFlow.send, mapping))
 
         # Wait for all tasks to finish
-        while self.threadpool_components:
-            self.threadpool_components.pop().result()
+        while self.threads:
+            self.threads.pop().result()
         logger = logging.getLogger("universal_ingest")
         logger.debug("done")
 
@@ -40,8 +40,9 @@ class WorkFlow:
         :return:
         """
         ts = time.time()
+        while mapping.transfer.total_executions != -1 and \
+                mapping.transfer.executions <= mapping.transfer.total_executions:
 
-        if mapping.transfer.last_executed is None or mapping.transfer.last_executed + \
-                mapping.transfer.last_executed + mapping.transfer.wait_time*60 > ts:
-            mapping.transfer.execute(mapping.source, mapping.destination)
-            mapping.last_executed = ts
+            if mapping.transfer.last_executed is None or mapping.transfer.last_executed + \
+                    mapping.transfer.last_executed + mapping.transfer.wait_time*60 > ts:
+                mapping.transfer.execute(mapping.source, mapping.destination)

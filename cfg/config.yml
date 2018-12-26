@@ -6,22 +6,34 @@ mapping:
     destination:
       type: file_system
       dir: /workspace/src/sandbox/demo2
-    transfer:
+    channel:
       type: file_copy
       waittime: 5
       executions: 5
 
-  - name: kafka_file_to_file_endpoint
+  - name: s3_test2
     source:
       type: file_system
-      dir: /workspace/src/sandbox/demo3
+      dir:  /workspace/src/sandbox/demo3
     destination:
-      type: file_system
-      dir: /workspace/src/sandbox/demo4
-    transfer:
-      type: kafka_copy
-      host: localhost
-      broker: 9092
-      topic: ingest
+      type: s3
+      dir: unittestingestor
+    channel:
+      type: file_copy
       waittime: 5
-      executions: 1
+      executions: 0
+
+  - name: kafka_test2
+    source:
+      type: file_system
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/source
+    destination:
+      type: kafka
+      topic: unittesttopic
+    transfer:
+      type: kafka
+      host: localhost
+      port: 9092
+      filter: "csv"
+      waittime: 5
+      executions: 0

@@ -2,7 +2,6 @@
 @copyright: 2018 Data Wizard
 """
 
-import os
 
 from src.destination.destination import Destination
 
@@ -12,14 +11,13 @@ class S3Destination(Destination):
     This class is responsible for storing data into S3
     """
 
-    def __init__(self, directory):
+    def __init__(self, bucket_name):
         super().__init__()
-        self._directory = directory
+        self._bucket_name = bucket_name
 
     @property
-    def directory(self):
-        return self._directory
+    def bucket_name(self):
+        return self._bucket_name
 
     def validate(self):
-        self.access_possible = os._exists(self._directory)
-        return self.access_possible
+        raise NotImplementedError

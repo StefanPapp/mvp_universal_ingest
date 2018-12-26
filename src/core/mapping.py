@@ -8,7 +8,7 @@ class Mapping:
     This class represents a mapping between
     * source: filesystem (directory) - later maybe msqldb
     * destination: filesystem(directory), s3 - later maybe others
-    * transfer: file_copy, kafka
+    * channel: file_copy, kafka
     """
 
     def __init__(self, name, source, destination, transfer):

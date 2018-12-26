@@ -13,15 +13,15 @@ import os
 
 class TestKafkaTransfer(TestCase):
     """
-    Unittests for transfer for Kafka
+    Unittests for channel for Kafka
     """
 
     def test_kafka_transfer(self):
-        """ Runs a test with a s3 file transfer
+        """ Runs a test with a s3 file channel
             PRECONDITION:
             kafka is running, topic exists
         """
-        Path('/workspace/src/sandbox/kul/src/transfer/unit_tests/source/unittest.txt').touch()
+        Path('/workspace/src/sandbox/kul/src/channel/unit_tests/source/unittest.txt').touch()
 
         test_transfer_schema = TransferSchema("./kafka_test.yml")
         test_transfer_schema.load()

@@ -12,14 +12,11 @@ from src.core.objectfactory import ObjectFactory
 
 class TransferSchema:
     """
-    Loads config that holds transfer schema.
+    Loads config that holds channel schema.
     """
 
     def __init__(self, yaml_file):
         self.yaml_file = yaml_file
-        self._sources = None
-        self._destinations = None
-        self._transfers = None
         self._mappings = None
 
     def load(self):
@@ -42,7 +39,7 @@ class TransferSchema:
             name = mapping['name']
             source = TransferSchema._load_source(mapping['source'])
             destination = TransferSchema._load_destination(mapping['destination'])
-            transfer = TransferSchema._load_transfer_type(mapping['transfer'])
+            transfer = TransferSchema._load_transfer_type(mapping['channel'])
             mappings_list.append(Mapping(name, source, destination, transfer))
         return mappings_list
 
@@ -75,31 +72,7 @@ class TransferSchema:
                                                     port=transfer_type['port']
                                                     )
 
-        raise AttributeError("No transfer Type specified")
-
-    @property
-    def sources(self):
-        """
-        returns the log manager responsible for all logging related tasks
-        :return:
-        """
-        return self._sources
-
-    @property
-    def destinations(self):
-        """
-        returns the log manager responsible for all logging related tasks
-        :return:
-        """
-        return self._destinations
-
-    @property
-    def transfers(self):
-        """
-        returns the log manager responsible for all logging related tasks
-        :return:
-        """
-        return self._transfers
+        raise AttributeError("No channel Type specified")
 
     @property
     def mappings(self):

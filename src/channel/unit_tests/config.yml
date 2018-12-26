@@ -2,10 +2,10 @@ mapping:
   - name: file_to_file_endpoint_test1
     source:
       type: file_system
-      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/source
     destination:
       type: file_system
-      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/destination
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/destination
     transfer:
       type: file_copy
       waittime: 5
@@ -14,11 +14,11 @@ mapping:
   - name: file_to_file_endpoint_test2
     source:
       type: file_system
-      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/source
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/source
     destination:
       type: file_system
-      dir: /workspace/src/sandbox/kul/src/transfer/unit_tests/destination
-    transfer:
+      dir: /workspace/src/sandbox/kul/src/channel/unit_tests/destination
+    channel:
       type: file_copy
       waittime: 5
       executions: 0

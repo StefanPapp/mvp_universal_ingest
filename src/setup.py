@@ -19,7 +19,7 @@ setup(
     author_email="stefan.papp@data-wizard.net",
     description="universal data ingestor",
     keywords="ingest",
-    packages=["core", "destination", "source", "transfer"],
+    packages=["core", "destination", "source", "channel"],
     long_description=_read('README.md'),
     zip_safe=True,
     license="2018 Data Wizard. All rights reserved.",
@@ -29,6 +29,7 @@ setup(
     install_requires=[
         'awscli',
         'pykafka',
-        'pyyaml'
+        'pyyaml',
+        'boto3'
     ]
 )

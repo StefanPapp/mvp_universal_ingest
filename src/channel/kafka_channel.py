@@ -6,12 +6,12 @@
 import os
 import logging
 from pykafka import KafkaClient
-from src.transfer.transfer import Transfer
+from src.channel.channel import Channel
 from src.source.filesystem_source import FileSystemSource
 from src.destination.kafkadestination import KafkaDestination
 
 
-class KafkaTransfer(Transfer):
+class KafkaChannel(Channel):
     """
     Kafka Transfer
     """

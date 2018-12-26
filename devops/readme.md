@@ -1,0 +1,1 @@
+docker build . --tag stefanpapp/universal_ingest

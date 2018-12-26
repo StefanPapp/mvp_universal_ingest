@@ -10,8 +10,8 @@ from src.source.filesystem_source import FileSystemSource
 from src.destination.filesystem_destination import FileSystemDestination
 from src.destination.s3destination import S3Destination
 from src.destination.kafkadestination import KafkaDestination
-from src.transfer.file_transfer import FileTransfer
-from src.transfer.kafka_transfer import KafkaTransfer
+from src.channel.file_channel import FileChannel
+from src.channel.kafka_channel import KafkaChannel
 
 
 class ObjectFactory(containers.DeclarativeContainer):
@@ -23,5 +23,5 @@ class ObjectFactory(containers.DeclarativeContainer):
     filesystem_destination = providers.Factory(FileSystemDestination)
     s3 = providers.Factory(S3Destination)
     kafka = providers.Factory(KafkaDestination)
-    filesystem_filetransfer = providers.Factory(FileTransfer)
-    kafka_filetransfer = providers.Factory(KafkaTransfer)
+    filesystem_filetransfer = providers.Factory(FileChannel)
+    kafka_filetransfer = providers.Factory(KafkaChannel)

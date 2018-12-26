@@ -3,7 +3,7 @@
 """
 
 
-class Transfer:
+class Channel:
     """
     Base class for transferring files
     """

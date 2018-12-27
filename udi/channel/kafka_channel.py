@@ -6,9 +6,9 @@
 import os
 import logging
 from pykafka import KafkaClient
-from channel.channel import Channel
-from source.filesystem_source import FileSystemSource
-from destination.kafkadestination import KafkaDestination
+from udi.channel.channel import Channel
+from udi.source.filesystem_source import FileSystemSource
+from udi.destination.kafkadestination import KafkaDestination
 
 
 class KafkaChannel(Channel):

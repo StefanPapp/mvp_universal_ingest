@@ -5,19 +5,12 @@
 import argparse
 import sys
 
-from udi.core import LogManager
-from udi.core import TransferSchema
-from udi.core import WorkFlow
+from udi.core.log_manager import LogManager
+from udi.core.transfer_schema import TransferSchema
+from udi.core.workflow import WorkFlow
 
 
-def _eval_args(args):
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', help='path to config', required=True)
-    args = parser.parse_args(args)
-    return args
-
-
-def _main():
+def main():
     """
     Loads Config and triggers workflow
     :return:
@@ -30,5 +23,11 @@ def _main():
     workflow.start(transfer_schema.mappings)
 
 
+def _eval_args(args):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--config', help='path to config', required=True)
+    args = parser.parse_args(args)
+    return args
+
 if __name__ == '__main__':
-    _main()
+    main()

@@ -6,8 +6,8 @@ import os
 import sys
 import yaml
 
-from core.mapping import Mapping
-from core.objectfactory import ObjectFactory
+from udi.core.mapping import Mapping
+from udi.core.objectfactory import ObjectFactory
 
 
 class TransferSchema:

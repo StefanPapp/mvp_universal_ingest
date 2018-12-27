@@ -4,7 +4,7 @@
 
 from unittest import TestCase
 
-from core.transfer_schema import TransferSchema
+from udi.core.transfer_schema import TransferSchema
 
 
 class TestTransferSchema(TestCase):

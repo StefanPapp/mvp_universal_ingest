@@ -8,10 +8,9 @@ import logging
 from distutils.dir_util import copy_tree
 import boto3
 
-from channel.channel import Channel
-from source.filesystem_source import FileSystemSource
-from destination.s3destination import S3Destination
-
+from udi.channel.channel import Channel
+from udi.source.filesystem_source import FileSystemSource
+from udi.destination.s3destination import S3Destination
 
 
 class FileChannel(Channel):

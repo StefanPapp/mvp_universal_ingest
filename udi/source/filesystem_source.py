@@ -3,7 +3,7 @@
 """
 
 import os
-from source.source import Source
+from udi.source.source import Source
 
 
 

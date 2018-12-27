@@ -4,7 +4,7 @@
 
 import os
 from setuptools import setup
-from __init__ import __version__
+from udi import __version__
 
 
 def _read(file_name):
@@ -13,13 +13,17 @@ def _read(file_name):
 
 
 setup(
-    name="Universal Data Ingestor",
+    name="udi",
     version=__version__,
     author="DW",
     author_email="stefan.papp@data-wizard.net",
     description="universal data ingestor",
     keywords="ingest",
-    packages=["core", "destination", "source", "channel"],
+    packages=["udi",
+              "udi.core",
+              "udi.destination",
+              "udi.source",
+              "udi.channel"],
     long_description=_read('README.md'),
     zip_safe=True,
     license="2018 Data Wizard. All rights reserved.",

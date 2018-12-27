@@ -1,0 +1,4 @@
+awscli
+pykafka
+pyyaml
+boto3

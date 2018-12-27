@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: udi
+Version: 0.0.1
+Summary: universal data ingestor
+Home-page: UNKNOWN
+Author: DW
+Author-email: stefan.papp@data-wizard.net
+License: 2018 Data Wizard. All rights reserved.
+Description: This is a tool to specify source and end points to transfer files from a to b.
+        
+Keywords: ingest
+Platform: UNKNOWN
+Classifier: Development Status :: Release

@@ -3,7 +3,7 @@
 """
 
 import os
-from destination.destination import Destination
+from udi.destination.destination import Destination
 
 
 class FileSystemDestination(Destination):

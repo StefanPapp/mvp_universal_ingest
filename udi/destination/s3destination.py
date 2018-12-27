@@ -3,7 +3,7 @@
 """
 
 
-from destination.destination import Destination
+from udi.destination.destination import Destination
 
 
 class S3Destination(Destination):

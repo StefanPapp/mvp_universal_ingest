@@ -6,8 +6,8 @@
 from pathlib import Path
 from unittest import TestCase
 
-from core.transfer_schema import TransferSchema
-from core.workflow import WorkFlow
+from udi.core import TransferSchema
+from udi.core import WorkFlow
 
 
 

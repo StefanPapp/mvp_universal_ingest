@@ -5,9 +5,9 @@
 import argparse
 import sys
 
-from core.log_manager import LogManager
-from core.transfer_schema import TransferSchema
-from core.workflow import WorkFlow
+from udi.core import LogManager
+from udi.core import TransferSchema
+from udi.core import WorkFlow
 
 
 def _eval_args(args):

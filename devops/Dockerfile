@@ -1,7 +1,6 @@
 FROM stefanpapp/devenv:latest
 LABEL Maintainer="Stefan Papp stefan.papp@data-wizard.net"
 RUN pip3 install awscli pykafka dependency_injector boto3
-
-ADD install_kafka.sh /tmp/install_kafka.sh
-RUN chmod a+x /tmp/install_kafka.sh &&  /tmp/install_kafka.sh
+ADD udi-0.0.1-py3-none-any.whl /tmp/udi-0.0.1-py3-none-any.whl
+RUN pip3 install /tmp/Universal_Data_Ingestor-0.0.1-py3-none-any.whl
 

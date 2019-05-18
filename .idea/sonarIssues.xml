@@ -408,6 +408,51 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_car_data_ingestor/__main__.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_car_data_ingestor/ingest_workflow/complexingestworkflow.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_car_data_ingestor/ingest_workflow/ingestworkflow.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_car_data_ingestor/ingest_workflow/simpleingestworkflow.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_release_notes.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/ingest/ingest-common/ingest_common/data/vehicleConfig_schema.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/src/master/DXC_ingest/integration_tests/cdi_car-data-ingestor/testdata/valid_simple_workflow_configuration.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/tasks/IT4ADMDM-249/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_car_data_ingestor/__main__.py">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../com/dxc/tasks/IT4ADMDM-249/DXC_ingest/ingest/cdi_car-data-ingestor/cdi_car_data_ingestor/ingest_workflow/simpleingestworkflow.py">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
